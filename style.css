@@ -1,0 +1,566 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  font-family: Arial, sans-serif;
+}
+/* 
+  =============================
+  RESET & BASIC GLOBAL STYLES
+  =============================
+*/
+@font-face {
+font-family: 'SaberShark';
+src: url("sabresharkboldital.ttf") format('truetype'); 
+/* Adjust path/format if needed */
+} 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.top-nav {
+  position: fixed; /* or fixed if you want it pinned */
+  top: 0;
+  width: 100%;
+  background: #fff;  /* White nav background */
+  color: #000;       /* default text color black */
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* logo left, links right */
+  z-index: 9999;
+}
+.top-nav a {
+  color: black;
+  text-decoration: none;
+  margin: 0 1.5rem;
+  font-weight: 600;
+}
+.top-nav a:hover,
+.top-nav a.active {
+  opacity: 0.8;
+}
+/* 
+  =============================
+  MAIN CONTAINER
+  =============================
+*/
+.container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 80px ;
+  padding-bottom: 0;
+  background-color: #DA3A2C; 
+
+}
+    /* 
+  =============================
+  MAIN COLOR OVERLAY
+  =============================
+*/
+.color-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #DA3A2C; /* same as container background */
+  mix-blend-mode: multiply;  /* merges with the image for that tinted effect */
+  z-index: 2;
+}
+
+/* 
+  =============================
+  BACKGROUND IMAGE
+  =============================
+*/
+.hero-title {
+  font-family: 'SaberShark', serif;
+  font-size: 3.5rem; /* Adjust size as needed */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+  margin: 0 auto; /* Center the title */
+  text-align: center;
+  display: block;
+  white-space: nowrap; /* Prevents breaking into multiple lines */
+}
+
+.small-fp {
+  font-size: 0.8em; /* Makes fp slightly smaller */
+  text-transform: lowercase; /* Ensures fp is lowercase */
+}
+
+.hero {
+  position: relative;
+  min-height: 100vh; /* fill at least the full screen */
+  width: 100%;
+  display: flex;          /* so we can center content with flex */
+  align-items: center;    /* vertically center */
+  justify-content: center;/* horizontally center if needed */
+
+}
+.bg-image {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  opacity: 0.4; 
+
+}
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 10%;  /* how far from the left edge */
+  transform: translateY(-50%);
+  z-index: 2; /* above the overlay */
+  color: #fff;
+  max-width: 600px; /* optional: limit text width */
+}
+
+.hero-title {
+  font-family: 'SaberShark', serif;
+  font-size: 3.5rem; /* Adjust size as needed */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+  margin: 0 auto; /* Center the title */
+  text-align: center;
+  display: block;
+  white-space: nowrap; /* Prevents breaking into multiple lines */
+}
+
+.small-fp {
+  font-size: 0.8em; /* Makes fp slightly smaller */
+  text-transform: lowercase; /* Ensures fp is lowercase */
+}
+
+.hero {
+  position: relative;
+  min-height: 100vh; /* fill at least the full screen */
+  width: 100%;
+  display: flex;          /* so we can center content with flex */
+  align-items: center;    /* vertically center */
+  justify-content: center;/* horizontally center if needed */
+}
+.bg-image {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  opacity: 0.4; 
+
+}
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 10%;  /* how far from the left edge */
+  transform: translateY(-50%);
+  z-index: 2; /* above the overlay */
+  color: #fff;
+  max-width: 600px; /* optional: limit text width */
+}
+
+/* Main title: large, uppercase, bold */
+.hero-title {
+  font-size: 4rem;  /* increase for bigger text */
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+  letter-spacing: -0.02em; /* optional */
+}
+.text-block {
+  color: #fff;
+  margin-right: 2rem;
+  /* other text styling */
+}
+.hero-girl {
+  position: absolute;
+  top: 80%;
+  right: 0;
+  right: -1010px;
+  transform: translateY(-50%);  /* how far off the right edge you want */
+  bottom: 0;      /* or top: 50%; transform: translateY(-50%); if you want it vertically centered */
+  width: 53vw;
+  height: auto;
+}
+
+/*************************************
+  WHY CHOOSE US SECTION
+**************************************/
+/* WHY CHOOSE US - No Dark Box */
+.why-choose-us {
+  position: relative;
+  /* No background or gradient here so your main background image shows */
+  background: none; 
+  padding: 4rem 2rem;
+  text-align: center;
+  z-index: 3;
+  justify-content: center;
+}
+
+/* Container for heading + paragraph + optional bullets */
+.why-container {
+  max-width: 900px; 
+  margin: 0 auto;  /* Center horizontally */
+  /* No border, no radius, no box shadow here */
+}
+
+/* Big Title */
+.why-container h2 {
+  font-size: 9rem;       /* Large heading */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  color: #fff;
+}
+
+/* Paragraph text */
+.why-container p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: #fff;
+}
+
+/* Optional bullet list (remove if not needed) */
+.why-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+}
+.why-container li {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: white;
+}
+.why-container li i {
+  margin-right: 0.5rem;
+  color: white; /* gold check icon */
+  font-size: 1.5rem;
+}
+
+/* Stats Container below the text */
+.stats-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 2rem 1rem;
+  max-width: 1000px;
+  margin: 0 auto; /* center horizontally */
+  /* No dark background, just let your page’s background show through */
+}
+
+/* Each stat box */
+.stat-box {
+  text-align: center;
+  margin: 1rem;
+  flex: 1;
+  min-width: 150px;
+  color: #fff;  /* White text for contrast */
+}
+.stat-box h3 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.6); /* subtle pop */
+}
+.stat-box p {
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* 
+  =============================
+  RESPONSIVE TWEAKS 
+  For smaller screens
+  =============================
+*/
+
+/* Projects Grid: 2 columns, fill page width */
+.projects-grid {
+  position: relative;
+  z-index: 3;  
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin:0 auto 0 auto;
+  gap: 2rem;
+  width: 90%;         /* or 100% if you want it truly full width */
+  max-width: 1400px;  /* optional limit */
+  margin: 0 auto 3rem auto; /* center horizontally */
+}
+
+/* Project Item Cards */
+.project-item {
+  background: rgba(255, 255, 255, 0.1); 
+  border-radius: 6px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.project-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.projects-header {
+  position: relative;    /* so we can control z-index */
+  z-index: 4;            /* ensure it's above the color overlay */
+  color: #fff;           /* text in white */
+  text-align: center;
+  margin-top: 80px;      /* space from top */
+  margin-bottom: 40px;   /* space from bottom */
+}
+
+.projects-header h2 {
+  font-size: 2.5rem;     
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.project-content h4 {
+  color: #fff;            /* White heading text */
+  font-size: 1.2rem;   
+  margin-top: 1rem; 
+  margin-left: 0.4rem;  /* Larger heading font */
+  margin-bottom: 0.5rem;  /* Spacing below heading */
+  text-transform: uppercase;
+  letter-spacing: 1px;    /* Slight spacing between letters */
+}
+
+.project-content p {
+  color: #ddd;            /* Light gray for paragraphs */
+  font-size: 1rem;        /* Adjust as desired */
+  line-height: 1.6;   
+  margin-left: 0.4rem;    /* Increase line-height for readability */
+  margin-bottom: 1.2rem;  /* Spacing after each paragraph */
+}
+
+/* 1) The container for all logos */
+.logos-row {
+  background: #ca1e0f;  /* match your site’s red */
+  margin: 0;           /* remove any default margins */
+  padding: 2rem;       /* more padding = taller red bar */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* 2) Each logo image */
+.logos-row img {
+  max-height: 80px;    /* was 40px; increase for bigger logos */
+  margin: 0 1rem;      /* space between logos */
+  background: none;    /* remove any default background on the <img> itself */
+  transition: transform 0.2s ease;
+}
+
+/* Optional: enlarge slightly on hover */
+.logos-row img:hover {
+  transform: scale(1.1);
+}
+
+/* 4) SERVICES SECTION inside the hero */
+.services-section {
+  position: relative;
+  z-index: 3; /* above overlay */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100%; /* fill the hero */
+  padding: 2rem; /* spacing inside */
+  box-sizing: border-box;
+}
+
+.section-header {
+  margin-bottom: 2rem;
+}
+.section-header h2 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+.section-header p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.4;
+}
+
+/* Services grid: 4 columns on large screens, responsive */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 2rem;
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.service-card {
+  background: rgba(255,255,255,0.1);
+  border-radius: 6px;
+  padding: 1.5rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.service-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+.service-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+.service-card p {
+  font-size: 0.95rem;
+  color: #eee;
+  line-height: 1.4;
+}
+
+/* 5) FOOTER (big at bottom) */
+.main-footer {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.footer-content h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+.footer-content p {
+  margin: 0.3rem 0;
+}
+
+/* 5) FOOTER pinned at bottom, height ~140px */
+.main-footer {
+  width: 100%;
+  background: #000;
+  color: #fff;
+  text-align: left;
+  height: auto; /* must match the calc() in .services-section height */
+  box-sizing: border-box;
+  padding: 2rem 1rem;
+}
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.footer-content h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+.footer-content p {
+  margin: 0.3rem 0;
+}
+
+@media (max-width: 768px) {
+  /* 1) Keep nav in one line but shrink text/spacing */
+  .top-nav {
+    /* no flex-direction: column; so it stays horizontal */
+    display: flex; 
+    flex-wrap: nowrap;       /* prevent wrapping to a second line */
+    overflow-x: auto;        /* if there's not enough space, allow horizontal scroll */
+    padding: 0.5rem;         /* slightly smaller vertical padding */
+  }
+  .nav-links a {
+    font-size: 0.8rem;       /* smaller link text on mobile */
+    margin: 0 0.5rem;        /* tighter spacing between links */
+    white-space: nowrap;     /* keep each link on a single line */
+  }
+
+  /* 2) Ensure container has enough top space 
+        so the hero isn't hidden behind the nav */
+  .container {
+    padding-top: 70px; /* or 80px if nav is taller */
+  }
+
+  /* 3) Hero adjustments: 
+       - reduce text size 
+       - scale lady image so everything fits */
+  .hero-text h1,
+  .hero-text h2,
+  .hero-text h3 {
+    font-size: 1.8rem;  /* or smaller, if needed */
+  }
+  .hero-text p {
+    font-size: 0.95rem;
+  }
+  /* Remove or override any absolute positioning on the lady image */
+  .hero-girl {
+    position: static;     /* no absolute positioning */
+    transform: none;      /* remove translate if you had it */
+    width: 60vw;          /* scale image for mobile */
+    max-width: 500px;
+    height: auto;
+    margin: 1rem auto 0;  /* center it and add top margin */
+    display: block;
+
+  }
+
+  /* 4) If you have a "Why Choose Us" or other sections,
+        reduce font sizes / spacing as well */
+  .why-choose-us h2 {
+    font-size: 1.6rem;
+  }
+  .why-choose-us p {
+    font-size: 0.95rem;
+  }
+
+  /* 5) Projects Grid: 1 column on small screens */
+  .projects-grid {
+    grid-template-columns: 1fr; 
+    gap: 1rem;
+  }
+  .project-content h4 {
+    font-size: 1rem;
+  }
+  .project-content p {
+    font-size: 0.9rem;
+  }
+
+  /* 6) Logos Row: smaller logos if you like */
+  .logos-row {
+    padding: 1rem;
+  }
+  .logos-row img {
+    max-height: 40px; /* smaller logos on mobile */
+    margin: 0.5rem;
+  }
+
+  /* 7) Footer: slightly smaller text */
+  .main-footer {
+    padding: 1rem;
+  }
+  .footer-content h3 {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+  }
+  .footer-content p {
+    font-size: 0.9rem;
+  }
+}

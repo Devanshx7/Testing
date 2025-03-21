@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact Us – NEXTGEN MEPfp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <div class="container">
+    <!-- Optional top nav -->
+    <div class="top-nav">
+      <div class="nav-left">
+        <a href="index.html">
+          <img src="next-gen-final.jpeg" alt="Logo" style="height:40px;" />
+        </a>
+      </div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="whychooseus.html">Why Choose Us</a>
+        <a href="services.html">Services</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  <style>
+    /************************************************
+      1) BASIC RESET & FULL-PAGE SCROLL
+    ************************************************/
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      width: 100%;
+      min-height: 100%;
+      overflow-x: hidden;   /* no horizontal scroll */
+      overflow-y: auto;     /* vertical scroll if content is tall */
+      font-family: Arial, sans-serif;
+      color: #fff;
+      background: #DA3A2C;  /* fallback if image fails */
+    }
+
+    /************************************************
+      2) TOP NAV => Centered
+    ************************************************/
+    .top-nav {
+  position: fixed; /* or fixed if you want it pinned */
+  width: 100%;
+  background: #fff;  /* White nav background */
+  color: #000;       /* default text color black */
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* logo left, links right */
+  z-index: 9999;
+}
+.top-nav a {
+  color: black;
+  text-decoration: none;
+  margin: 0 1.5rem;
+  font-weight: 600;
+}
+.top-nav a:hover,
+.top-nav a.active {
+  opacity: 0.8;
+}
+
+    /************************************************
+      3) HERO CONTAINER => background + overlay
+         with heading and contact boxes on top
+    ************************************************/
+    .hero-container {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;  /* fill screen if content is short */
+      overflow: hidden;
+    }
+
+    /* Background image behind everything */
+    .bg-image {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.4;  /* tinted effect */
+      z-index: 1;
+      /* Replace with your actual image path */
+    }
+
+    /* Red overlay for deeper tint */
+    .color-overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #DA3A2C;
+      opacity: 0.8;
+      mix-blend-mode: multiply;
+      z-index: 2;
+    }
+
+    /************************************************
+      4) BIG HEADING AT THE TOP
+    ************************************************/
+    .center-text {
+      position: relative;
+      z-index: 3; /* above overlay */
+      text-align: center;
+      padding: 6rem 1rem 2rem; /* top spacing so it’s near the top */
+    }
+    .center-text h1 {
+      font-size: 4rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 0.5rem;
+    }
+    .center-text p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0.5rem auto 0 auto;
+      line-height: 1.4;
+    }
+
+    /************************************************
+      5) CONTACT SECTION => GLASS BOXES
+         Placed immediately under heading
+    ************************************************/
+    .contact-section {
+      position: relative;
+      z-index: 3;  /* same layer as heading, above overlay */
+      width: 100%;
+      padding: 3rem 1rem; /* spacing around the boxes */
+      display: flex;
+      flex-wrap: wrap; /* stack on small screens */
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto; /* center horizontally */
+    }
+    .contact-box {
+      flex: 1;
+      min-width: 300px;
+      background: rgba(255,255,255,0.1); /* glass effect */
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      padding: 2rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .contact-box:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+    }
+
+    /* LEFT BOX => Contact Info */
+    .contact-info h2 {
+      font-size: 2rem;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .contact-info p {
+      font-size: 1.1rem;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+    .contact-info ul {
+      list-style: none;
+      margin-top: 1rem;
+      padding: 0;
+    }
+    .contact-info li {
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      font-size: 1rem;
+    }
+    .contact-info li i {
+      color: #ffd700; /* gold icon color */
+      margin-right: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    /* RIGHT BOX => Contact Form */
+    .contact-form h2 {
+      font-size: 2rem;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .contact-form label {
+      display: block;
+      margin-top: 1rem;
+      font-size: 1rem;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.6rem;
+      margin-top: 0.3rem;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 4px;
+      background: rgba(0,0,0,0.2);
+      color: #fff;
+      backdrop-filter: blur(5px);
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: #ffd700;
+    }
+    .contact-form button {
+      display: inline-block;
+      margin-top: 1.5rem;
+      background: #ffd700;
+      color: #000;
+      border: none;
+      padding: 0.8rem 1.2rem;
+      cursor: pointer;
+      font-weight: 600;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+    .contact-form button:hover {
+      background: #ffe85c;
+    }
+
+    /************************************************
+      6) BOTTOM TIMELINE => Placed after contact boxes
+         or at the bottom of hero
+    ************************************************/
+    .bottom-timeline {
+      /* already defined above, 
+         but if you want it after the contact boxes,
+         you can place it in the HTML after .contact-section
+         or keep it absolute if you prefer */
+    }
+
+    /************************************************
+      7) FOOTER (OPTIONAL)
+    ************************************************/
+    .main-footer {
+      background: #000;
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 2rem;
+    }
+    .main-footer p {
+      margin: 0.3rem 0;
+    }
+
+    @media (max-width: 768px) {
+  /* 1) Keep nav in one line but shrink text/spacing */
+  .top-nav {
+    /* no flex-direction: column; so it stays horizontal */
+    display: flex; 
+    flex-wrap: nowrap;       /* prevent wrapping to a second line */
+    overflow-x: auto;        /* if there's not enough space, allow horizontal scroll */
+    padding: 0.5rem;         /* slightly smaller vertical padding */
+  }
+  .nav-links a {
+    font-size: 0.8rem;       /* smaller link text on mobile */
+    margin: 0 0.5rem;        /* tighter spacing between links */
+    white-space: nowrap;     /* keep each link on a single line */
+  }
+}
+  </style>
+
+  <!-- Font Awesome (icons) -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"
+    integrity="sha512-SzlrxW/AGbEw5z3c5zAzYMYKM4HZf3cQ8VBo2Xxb7aC6cC1v2mN0/dQ/6l6/cp0E4nS7C4JwWAZ3OZ3OWtnTJQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+</head>
+<body>
+
+  <!-- 2) HERO => background + overlay + heading -->
+  <div class="hero-container">
+    <!-- Replace with your actual background image path -->
+    <img 
+      src="hero.jpg" 
+      alt="Background" 
+      class="bg-image"
+    />
+    <div class="color-overlay"></div>
+
+    <!-- Big heading at top -->
+    <div class="center-text">
+      <h1>Contact Us</h1>
+      <p>We’d Love to Hear From You. Let Us Help You With Your Next Project.</p>
+    </div>
+
+    <!-- CONTACT SECTION => GLASS BOXES near the top, right after heading -->
+    <section class="contact-section">
+      <!-- LEFT BOX: Info -->
+      <div class="contact-box contact-info">
+        <h2>Get in Touch</h2>
+        <p>
+          Have questions or need more details about our global services?
+          Reach out today! Our team is ready to assist with your next project.
+        </p>
+        <ul>
+          <li><i class="fas fa-map-marker-alt"></i>4095 Southern BLVD Suite #207</li>
+          <li><i class="fas fa-map-marker-alt"></i>WEST PALM BEACH, FL 33406</li>
+          <li><i class="fas fa-phone"></i> 877-307-8131</li>
+          <li><i class="fas fa-envelope"></i> info@nextgenmepfp.com</li>
+        </ul>
+      </div>
+
+      <!-- RIGHT BOX: Form -->
+      <div class="contact-box">
+        <form class="contact-form">
+          <h2>Contact Form</h2>
+          <label for="name">Name <span>*</span></label>
+          <input type="text" id="name" required />
+
+          <label for="email">Email <span>*</span></label>
+          <input type="email" id="email" required />
+
+          <label for="subject">Subject <span>*</span></label>
+          <input type="text" id="subject" required />
+
+          <label for="message">How Can We Help?</label>
+          <textarea id="message" rows="5"></textarea>
+
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- 3) BOTTOM TIMELINE => if you want it below the contact boxes 
+         or keep it absolutely positioned near the bottom of hero 
+         (just remove the "position:absolute" if you want it in normal flow)
+    -->
+
+  <footer class="main-footer">
+    <div class="footer-content">
+      <h3>NEXTGEN MEPfp DESIGN & CONSULTANTS, LLC</h3>
+      <p>4095 Southern BLVD Suite #207, WEST PALM BEACH, FL 33406</p>
+      <p>Phone: 877-307-8131 &nbsp;|&nbsp; Email: info@nextgenmepfp.com</p>
+      <p>&copy; 2025 NEXTGEN MEPfp. All Rights Reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

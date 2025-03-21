@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>OUR SERVICES - Scrollable</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <div class="container">
+    <!-- Optional top nav -->
+    <div class="top-nav">
+      <div class="nav-left">
+        <a href="index.html">
+          <img src="next-gen-final.jpeg" alt="Logo" style="height:40px;" />
+        </a>
+      </div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="whychooseus.html">Why Choose Us</a>
+        <a href="services.html">Services</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  <style>
+    /**********************************************
+     1) BASIC RESET & ALLOW VERTICAL SCROLL
+    **********************************************/
+    * {
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box;
+    }
+    html, body {
+      width: 100%;
+      min-height: 100%;
+      overflow-x: hidden;   /* no horizontal scroll */
+      overflow-y: auto;     /* allow vertical scroll */
+      font-family: Arial, sans-serif;
+      background: #DA3A2C;  /* fallback color if image fails */
+      color: #fff;
+    }
+
+    /**********************************************
+     2) TOP NAV (NORMAL FLOW or FIXED if you prefer)
+    **********************************************/
+    .top-nav {
+  position: fixed; /* or fixed if you want it pinned */
+  width: 100%;
+  background: #fff;  /* White nav background */
+  color: #000;       /* default text color black */
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* logo left, links right */
+  z-index: 9999;
+}
+.top-nav a {
+  color: black;
+  text-decoration: none;
+  margin: 0 1.5rem;
+  font-weight: 600;
+}
+.top-nav a:hover,
+.top-nav a.active {
+  opacity: 0.8;
+}
+
+    /**********************************************
+     3) HERO CONTAINER: background + overlay
+        at least full screen in height
+    **********************************************/
+    .hero-container {
+      position: relative;
+      width: 100%;
+      min-height: 100vh; /* at least viewport height */
+      overflow: hidden;  /* ensures background covers container */
+    }
+    /* BG image covers entire hero area */
+    .bg-image {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.4; /* tinted effect */
+      z-index: 1;
+    }
+    /* Red overlay for deeper tint */
+    .color-overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: #DA3A2C;
+      opacity: 0.8;
+      mix-blend-mode: multiply;
+      z-index: 2;
+    }
+
+    /**********************************************
+     4) SERVICES SECTION: big cards, normal block flow
+        => scroll if bigger than screen
+    **********************************************/
+    .services-section {
+      position: relative;
+      z-index: 3; /* above overlay */
+      padding: 5rem 2rem 4rem; /* top/bottom spacing */
+      text-align: center;
+      max-width: 1200px; /* optional content width */
+      margin: 0 auto;     /* center horizontally */
+    }
+    .services-section h1 {
+      font-size: 3.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 1rem;
+    }
+    .services-section p {
+      font-size: 1.3rem;
+      margin-bottom: 3rem;
+      max-width: 700px;
+      line-height: 1.5;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* SERVICES GRID => bigger cards */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* bigger min width => bigger cards */
+      gap: 2rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .service-card {
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 3rem 2rem;
+      position: relative;
+      transition: transform 0.4s, box-shadow 0.4s;
+      /* angled top edge => more dramatic angle */
+      clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      text-align: center;
+    }
+    .service-card:hover {
+      transform: translateY(-12px) rotateX(6deg); /* 3D tilt on hover */
+      box-shadow: 0 16px 30px rgba(0,0,0,0.3);
+    }
+    .service-card h3 {
+      font-size: 1.6rem;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      margin-top: 1rem; /* space after angled top edge */
+    }
+    .service-card p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #eee;
+      margin-bottom: 1.5rem;
+    }
+    /* CTA Button => bigger */
+    .btn-more {
+      text-decoration: none;
+      display: inline-block;
+      background: #fff;
+      color: #DA3A2C;
+      padding: 0.8rem 1.2rem;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: background 0.3s, color 0.3s;
+      font-size: 1rem;
+    }
+    .btn-more:hover {
+      background: #f4f4f4;
+      color: #DA3A2C;
+    }
+
+    /**********************************************
+     OPTIONAL ICON WRAPPER => bigger circle & icon
+     If you want an overlapping icon circle:
+    **********************************************/
+    .icon-wrapper {
+      width: 70px;
+      height: 70px;
+      background: #DA3A2C;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: -4rem auto 1.5rem auto; 
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+      position: relative;
+      z-index: 2;
+    }
+    .icon-wrapper i {
+      color: #fff;
+      font-size: 2rem;
+    }
+
+    /**********************************************
+     5) FOOTER => normal block below hero
+    **********************************************/
+    .main-footer {
+      background: #000;
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem; /* bigger footer padding */
+      font-size: 1rem;
+    }
+    .main-footer h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+    .main-footer p {
+      margin: 0.3rem 0;
+    }
+    @media (max-width: 768px) {
+  /* 1) Keep nav in one line but shrink text/spacing */
+  .top-nav {
+    /* no flex-direction: column; so it stays horizontal */
+    display: flex; 
+    flex-wrap: nowrap;       /* prevent wrapping to a second line */
+    overflow-x: auto;        /* if there's not enough space, allow horizontal scroll */
+    padding: 0.5rem;         /* slightly smaller vertical padding */
+  }
+  .nav-links a {
+    font-size: 0.8rem;       /* smaller link text on mobile */
+    margin: 0 0.5rem;        /* tighter spacing between links */
+    white-space: nowrap;     /* keep each link on a single line */
+  }
+}
+    
+  </style>
+</head>
+<body>
+
+
+  <!-- HERO + SERVICES -->
+  <div class="hero-container">
+    <!-- BG IMAGE + OVERLAY -->
+    <img 
+      src="Download premium psd _ image of 5g network technology psd smart city background by Chanikarn Thongsupa about background, blue background, sky, design, and technology 2798874.jpg"
+      alt="Background"
+      class="bg-image"
+    />
+    <div class="color-overlay"></div>
+
+    <!-- BIG SERVICES SECTION in normal flow -->
+    <section class="services-section">
+      <h1>OUR SERVICES</h1>
+      <p>From Low Voltage MEPfp Design to Advanced Technology Consulting</p>
+      
+      <div class="services-grid">
+        <!-- Card #1 -->
+        <div class="service-card">
+          <!-- <div class="icon-wrapper"><i class="fas fa-bolt"></i></div> -->
+          <h3>Low Voltage MEPfp Design</h3>
+          <p>
+            Comprehensive Mechanical, Electrical, Plumbing, and Fire Protection solutions 
+            for modern buildings worldwide.
+          </p>
+          <a href="#" class="btn-more">Learn More</a>
+        </div>
+        <!-- Card #2 -->
+        <div class="service-card">
+          <h3>Hospitality &amp; Resorts</h3>
+          <p>
+            Specialized in luxury hotels, resorts, and leisure facilities—ensuring
+            comfort and efficiency for guests worldwide.
+          </p>
+          <a href="#" class="btn-more">Learn More</a>
+        </div>
+        <!-- Card #3 -->
+        <div class="service-card">
+          <h3>Technology Consulting</h3>
+          <p>
+            Advanced A/V, security, and IT infrastructure designs for seamless global operations.
+          </p>
+          <a href="#" class="btn-more">Learn More</a>
+        </div>
+        <!-- Card #4 -->
+        <div class="service-card">
+          <h3>Global Reach</h3>
+          <p>
+            Delivering projects in North America, Europe, and beyond—bridging
+            innovation across continents.
+          </p>
+          <a href="#" class="btn-more">Learn More</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- NORMAL FOOTER (BELOW HERO) -->
+  <footer class="main-footer">
+    <h3>NEXTGEN MEPfp DESIGN &amp; CONSULTANTS, LLC</h3>
+    <p>4095 Southern BLVD Suite #207, WEST PALM BEACH, FL 33406</p>
+    <p>Phone: 877-307-8131 | Email: info@nextgenmepfp.com</p>
+    <p>&copy; 2025 NEXTGEN MEPfp. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
