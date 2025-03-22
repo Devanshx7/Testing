@@ -496,28 +496,33 @@ src: url("sabresharkboldital.ttf") format('truetype');
 
 @media (max-width: 768px) {
   .top-nav {
-    /* Keep everything in a single row */
-    display: flex;
-    flex-wrap: nowrap;     /* don't let items wrap to a new line */
-    overflow-x: auto;      /* horizontal scroll if links don't fit */
-    white-space: nowrap;   /* force links to stay on one line */
-    justify-content: flex-start;
-    align-items: center;
-    padding: 0.5rem 1rem;  /* smaller padding on mobile */
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important; 
+    white-space: nowrap !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    padding: 0.5rem 1rem !important;
+    height: auto !important;
   }
 
-  /* If .nav-left has a margin-right, keep or adjust as needed */
   .nav-left {
-    margin-right: 1rem; /* spacing between logo and links */
+    margin-right: 1rem !important;
   }
 
-  /* Make the links smaller so they fit better in one row */
+  .nav-links {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 0.5rem !important;
+    margin-left: auto !important; /* push links to the right if desired */
+  }
+
   .nav-links a {
-    font-size: 0.8rem;  /* smaller text */
-    margin: 0 0.5rem;   /* reduce spacing */
+    font-size: 0.8rem !important;
+    white-space: nowrap !important;
+    padding: 0.25rem 0.5rem !important;
   }
 }
-
 /* 2) HERO: stack text and image, so no overlap */
 .hero {
   justify-content: center;
