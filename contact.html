@@ -73,9 +73,9 @@
       background: #DA3A2C;  /* fallback if image fails */
     }
 
-    /************************************************
-      2) TOP NAV => Centered
-    ************************************************/
+/************************************************
+2) TOP NAV => Centered
+************************************************/
 .top-nav {
   position: fixed; /* or fixed if you want it pinned */
   top: 0;
@@ -87,6 +87,9 @@
   justify-content: center;
   align-items: center; /* logo left, links right */
   z-index: 9999;
+  white-space: nowrap;             /* prevent wrapping */
+  overflow-x: auto;                /* enable horizontal scroll */
+  -webkit-overflow-scrolling: touch;
 }
 .nav-links{
   margin-left:auto;
@@ -105,10 +108,9 @@
 }
 /* 
 
-    /************************************************
-      3) HERO CONTAINER => background + overlay
-         with heading and contact boxes on top
-    ************************************************/
+/************************************************
+3) HERO CONTAINER => background + overlay with heading and contact boxes on top
+************************************************/
     .hero-container {
       position: relative;
       width: 100%;
