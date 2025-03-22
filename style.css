@@ -477,59 +477,6 @@ src: url("sabresharkboldital.ttf") format('truetype');
 .footer-content p {
   margin: 0.3rem 0;
 }
-/* --- NAVBAR STYLING --- */
-.top-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem;
-  background: white;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 9999;
-}
-
-/* Desktop nav links */
-.nav-links {
-  display: flex;
-  gap: 1rem;
-}
-
-/* Mobile hamburger (hidden by default) */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-}
-
-.hamburger span {
-  width: 25px;
-  height: 3px;
-  background: black;
-  display: block;
-}
-
-/* Mobile dropdown nav (initially hidden) */
-.mobile-menu {
-  display: none;
-  flex-direction: column;
-  background: white;
-  padding: 1rem;
-  position: fixed;
-  top: 70px;
-  right: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  z-index: 9999;
-}
-
-.mobile-menu a {
-  padding: 0.5rem 0;
-  color: black;
-  text-decoration: none;
-  font-weight: 600;
-}
 
 /* --- MEDIA QUERY: Mobile view adjustments --- */
 @media (max-width: 768px) {
