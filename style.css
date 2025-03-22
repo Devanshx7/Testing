@@ -483,12 +483,12 @@ src: url("sabresharkboldital.ttf") format('truetype');
   .top-nav {
     /* no flex-direction: column; so it stays horizontal */
     display: flex; 
-    flex-wrap: nowrap;       /* prevent wrapping to a second line */
-    overflow-x: auto;        /* if there's not enough space, allow horizontal scroll */
-    padding: 0.5rem;         /* slightly smaller vertical padding */
+    justify-content: space-between; /* logo on left, links on right */
+    align-items: center;
+    padding: 0.5rem 1rem;         /* slightly smaller vertical padding */
   }
   .nav-links a {
-    font-size: 0.8rem;       /* smaller link text on mobile */
+    font-size: 0.9rem;       /* smaller link text on mobile */
     margin: 0 0.5rem;        /* tighter spacing between links */
     white-space: nowrap;     /* keep each link on a single line */
   }
@@ -503,18 +503,17 @@ src: url("sabresharkboldital.ttf") format('truetype');
   /* 3) Hero adjustments: 
        - reduce text size 
        - scale lady image so everything fits */
+  .hero-title, 
   .hero-text h1,
-  .hero-text h2,
-  .hero-text h3 {
-    font-size: 1.8rem;  /* or smaller, if needed */
-  }
-  .hero-text p {
-    font-size: 0.95rem;
+  .hero-text h2 {
+    text-align: center;
+    font-size: 2rem;         /* scale down for mobile */
+    white-space: normal;     /* allow wrapping if it’s too wide */
+    margin: 0 auto 1rem;     /* center + spacing below */
   }
   /* Remove or override any absolute positioning on the lady image */
   .hero-girl {
-    position: static;     /* no absolute positioning */
-    transform: none;      /* remove translate if you had it */
+    position: static;     /* no absolute positioning */     /* remove translate if you had it */
     width: 60vw;          /* scale image for mobile */
     max-width: 500px;
     height: auto;
@@ -531,7 +530,6 @@ src: url("sabresharkboldital.ttf") format('truetype');
   .why-choose-us p {
     font-size: 0.95rem;
   }
-
   /* 5) Projects Grid: 1 column on small screens */
   .projects-grid {
     grid-template-columns: 1fr; 
