@@ -28,7 +28,7 @@ src: url("sabresharkboldital.ttf") format('truetype');
   padding: 1rem;
   display: flex;
   justify-content: center;
-  align-items: center; /* logo left, links right */
+  align-items: right; /* logo left, links right */
   z-index: 9999;
 }
 .top-nav a {
