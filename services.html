@@ -231,19 +231,27 @@
     }
 
   
-    @media (max-width: 768px) {
-  /* 1) Keep nav in one line but shrink text/spacing */
+@media (max-width: 768px) {
   .top-nav {
-    /* no flex-direction: column; so it stays horizontal */
-    display: flex; 
-    flex-wrap: wrap;       /* prevent wrapping to a second line */
-    overflow-x: auto;        /* if there's not enough space, allow horizontal scroll */
-    padding: 0.5rem;         /* slightly smaller vertical padding */
+    /* Keep everything in a single row */
+    display: flex;
+    flex-wrap: nowrap;     /* don't let items wrap to a new line */
+    overflow-x: auto;      /* horizontal scroll if links don't fit */
+    white-space: nowrap;   /* force links to stay on one line */
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0.5rem 1rem;  /* smaller padding on mobile */
   }
+
+  /* If .nav-left has a margin-right, keep or adjust as needed */
+  .nav-left {
+    margin-right: 1rem; /* spacing between logo and links */
+  }
+
+  /* Make the links smaller so they fit better in one row */
   .nav-links a {
-    font-size: 0.8rem;       /* smaller link text on mobile */
-    margin: 0 0.5rem;        /* tighter spacing between links *
-                              /* keep each link on a single line */
+    font-size: 0.8rem;  /* smaller text */
+    margin: 0 0.5rem;   /* reduce spacing */
   }
 }
     
