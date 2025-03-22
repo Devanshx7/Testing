@@ -250,89 +250,34 @@
       margin: 0.3rem 0;
     }
 
-    /* ====== BASE NAV STYLES ====== */
-.top-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: #fff;
-  color: #000;
-  padding: 1rem;
-  display: flex;
-  align-items: center;
-  z-index: 9999;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-
-
-.nav-links {
-  margin-left: auto;
-  display: flex;
-  gap: 1rem;
-}
-
-/* Basic link styling */
-.nav-links a,
-.mobile-menu a {
-  color: #000;
-  text-decoration: none;
-  font-weight: 600;
-  padding: 0.5rem;
-  border-radius: 4px;
-}
-.nav-links a:hover,
-.mobile-menu a:hover {
-  background-color: #f0f0f0;
-}
-
-/* ====== HAMBURGER ICON ====== */
-.hamburger {
-  display: none; /* hidden by default (desktop) */
-  flex-direction: column;
-  justify-content: space-around;
-  width: 30px;
-  height: 24px;
-  cursor: pointer;
-  margin-left: auto; /* push to right if needed */
-}
-.hamburger span {
-  display: block;
-  width: 100%;
-  height: 3px;
-  background-color: #000;
-  border-radius: 2px;
-}
-
-/* ====== MOBILE MENU (hidden by default) ====== */
-.mobile-menu {
-  display: none; /* hidden by default */
-  flex-direction: column;
-  position: fixed;
-  top: 60px;      /* below the nav */
-  right: 0;
-  width: 200px;   /* adjust as needed */
-  background: #fff;
-  box-shadow: -2px 0 5px rgba(0,0,0,0.2);
-  padding: 1rem;
-  z-index: 9999;
-}
-
-    @media (max-width: 768px) {
-  /* 1) Keep nav in one line but shrink text/spacing */
+    @media (max-width: 600px) {
   .top-nav {
-    /* no flex-direction: column; so it stays horizontal */
-    display: flex; 
-    flex-wrap: nowrap;       /* prevent wrapping to a second line */
-    overflow-x: auto;        /* if there's not enough space, allow horizontal scroll */
-    padding: 0.5rem;         /* slightly smaller vertical padding */
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important; 
+    white-space: nowrap !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    padding: 0.5rem 1rem !important;
+    height: auto !important;
   }
+
+  .nav-left {
+    margin-right: 1rem !important;
+  }
+
+  .nav-links {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 0.5rem !important;
+    margin-left: auto !important; /* push links to the right if desired */
+  }
+
   .nav-links a {
-    font-size: 0.8rem;       /* smaller link text on mobile */
-    margin: 0 0.5rem;        /* tighter spacing between links */
-    white-space: nowrap;     /* keep each link on a single line */
+    font-size: 0.8rem !important;
+    white-space: nowrap !important;
+    padding: 0.25rem 0.5rem !important;
   }
-}
     
   </style>
 </head>
