@@ -40,7 +40,7 @@ src: url("sabresharkboldital.ttf") format('truetype');
 }
 
 .nav-left img {
-  height: 40px; /* adjust if needed */
+  height: 60px; /* adjust if needed */
 }
 
 .nav-links {
