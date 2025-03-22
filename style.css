@@ -180,7 +180,7 @@ src: url("sabresharkboldital.ttf") format('truetype');
   /* other text styling */
 }
 .hero-girl {
-  position: absolute;
+  position: static;
   top: 80%;
   right: 0;
   right: -1010px;
