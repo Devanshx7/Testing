@@ -479,49 +479,51 @@ src: url("sabresharkboldital.ttf") format('truetype');
 }
 
 @media (max-width: 768px) {
-  /* 1) Keep nav in one line but shrink text/spacing */
+  /* 1) NAVBAR: Keep it on one line, smaller text, nicely spaced */
   .top-nav {
-    /* no flex-direction: column; so it stays horizontal */
-    display: flex; 
+    display: flex;
     justify-content: space-between; /* logo on left, links on right */
     align-items: center;
-    padding: 0.5rem 1rem;         /* slightly smaller vertical padding */
+    padding: 0.5rem 1rem;          /* reduce padding on mobile */
   }
   .nav-links a {
-    font-size: 0.9rem;       /* smaller link text on mobile */
-    margin: 0 0.5rem;        /* tighter spacing between links */
-    white-space: nowrap;     /* keep each link on a single line */
+    font-size: 0.9rem;  /* smaller link text */
+    margin: 0 0.5rem;   /* tighter spacing */
+    white-space: nowrap;/* prevent text from wrapping mid-link */
   }
 
-  /* 2) Ensure container has enough top space 
-        so the hero isn't hidden behind the nav */
-  .container {
-    min-height: auto;
-    padding-top: 70px; /* or 80px if nav is taller */
-  }
+/* 2) HERO: stack text and image, so no overlap */
+.hero {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  padding: 2rem 1rem; /* adjust as desired */
+}
 
-  /* 3) Hero adjustments: 
-       - reduce text size 
-       - scale lady image so everything fits */
-  .hero-title, 
-  .hero-text h1,
-  .hero-text h2 {
-    text-align: center;
-    font-size: 2rem;         /* scale down for mobile */
-    white-space: normal;     /* allow wrapping if it’s too wide */
-    margin: 0 auto 1rem;     /* center + spacing below */
-  }
-  /* Remove or override any absolute positioning on the lady image */
-  .hero-girl {
-    position: static;     /* no absolute positioning */     /* remove translate if you had it */
-    width: 60vw;          /* scale image for mobile */
-    max-width: 500px;
-    height: auto;
-    margin: 1rem auto 0;  /* center it and add top margin */
-    display: block;
+/* 3) HERO TEXT: center and give bottom margin */
+.hero-text {
+  text-align: center;
+  margin-bottom: 1.5rem; 
+}
+.hero-text h1, 
+.hero-text h2, 
+.hero-text h3 {
+  font-size: 1.8rem; /* smaller headings for mobile */
+  white-space: normal;
+}
 
-  }
-
+/* 4) LADY IMAGE: place it below text, no absolute positioning */
+.hero-girl {
+  position: static;     /* remove absolute if used on desktop */
+  transform: none;      /* remove any translateY or similar */
+  width: 60vw;          /* scale up or down as desired */
+  max-width: 900px; 
+  top: 65%;    /* ensure it doesn't get too big */
+  height: 500px;
+  margin: 0 auto;       /* center horizontally */
+  display: block;
+}
+  
   /* 4) If you have a "Why Choose Us" or other sections,
         reduce font sizes / spacing as well */
   .why-choose-us h2 {
