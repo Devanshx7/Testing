@@ -19,45 +19,29 @@ src: url("sabresharkboldital.ttf") format('truetype');
   padding: 0;
   box-sizing: border-box;
 }
-/* =========================
-   SIMPLE, UNIFORM NAVBAR
-========================= */
 .top-nav {
-  position: fixed;
+  position: fixed; /* or fixed if you want it pinned */
   top: 0;
   width: 100%;
-  background: #fff;
-  color: #000;
+  background: #fff;  /* White nav background */
+  color: #000;       /* default text color black */
   padding: 1rem;
   display: flex;
-  align-items: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  z-index: 9999; /* stays on top of other content */
+  justify-content: center;
+  align-items: center; /* logo left, links right */
+  z-index: 9999;
 }
-
-.nav-left {
-  margin-right: auto; /* pushes nav links to the right */
-}
-
-.nav-left img {
-  height: 30px; /* adjust if needed */
-}
-
-.nav-links {
-  display: flex;
-  gap: 1rem; /* spacing between links */
-}
-
-.nav-links a {
-  color: #000;
+.top-nav a {
+  color: black;
   text-decoration: none;
+  margin: 0 1.5rem;
   font-weight: 600;
-  padding: 0.25rem 0.5rem; /* optional clickable area */
 }
-
-.nav-links a:hover {
+.top-nav a:hover,
+.top-nav a.active {
   opacity: 0.8;
 }
+/* 
   =============================
   MAIN CONTAINER
   =============================
@@ -65,7 +49,7 @@ src: url("sabresharkboldital.ttf") format('truetype');
 .container {
   position: relative;
   width: 100%;
-  min-height: 1000px;
+  min-height: 100vh;
   padding-top: 80px ;
   padding-bottom: 0;
   background-color: #DA3A2C; 
@@ -137,6 +121,8 @@ src: url("sabresharkboldital.ttf") format('truetype');
   max-width: 600px; /* optional: limit text width */
 }
 
+
+/* Main title: large, uppercase, bold */
 .text-block {
   color: #fff;
   margin-right: 2rem;
@@ -290,7 +276,7 @@ src: url("sabresharkboldital.ttf") format('truetype');
 }
 
 .projects-header h2 {
-  font-size: 2.5rem;     
+  font-size: 3.5rem;     
   margin-bottom: 0.5rem;
   text-transform: uppercase;
 }
@@ -397,8 +383,8 @@ src: url("sabresharkboldital.ttf") format('truetype');
   color: #eee;
   line-height: 1.4;
 }
-
-/* 5) FOOTER (big at bottom) */
+/*
+/* 5) FOOTER (big at bottom) 
 .main-footer {
   background: #000;
   color: #fff;
@@ -408,6 +394,7 @@ src: url("sabresharkboldital.ttf") format('truetype');
 .footer-content {
   max-width: 1200px;
   margin: 0 auto;
+  padding-left: 0;
 }
 .footer-content h3 {
   font-size: 1.4rem;
@@ -415,33 +402,40 @@ src: url("sabresharkboldital.ttf") format('truetype');
   text-transform: uppercase;
 }
 .footer-content p {
-  margin: 0.3rem 0;
-}
+  margin-left: -20px;
+}*/
 
 /* 5) FOOTER pinned at bottom, height ~140px */
 .main-footer {
+  position: relative;
+  z-index: 4; /* Higher than the overlay (which is z-index:2) */
   width: 100%;
   background: #000;
   color: #fff;
   text-align: left;
-  height: auto; /* must match the calc() in .services-section height */
-  box-sizing: border-box;
   padding: 2rem 1rem;
+  box-sizing: border-box;
 }
 .footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 1100px; /* Reduce width slightly */
+  margin: 0; /* Remove auto centering */
+  padding-left: 20px; /* Keeps content slightly shifted right */
 }
+
 .footer-content h3 {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
   text-transform: uppercase;
-}
-.footer-content p {
-  margin: 0.3rem 0;
+  padding-left: 5px; /* Shift heading slightly right */
 }
 
-@media (max-width: 768px) {
+.footer-content p {
+  margin-left: 0;
+  padding-left: 5px; /* Keep the same as h3 */
+}
+
+
+@media (max-width: 600px) {
   .top-nav {
     display: flex !important;
     flex-wrap: nowrap !important;
@@ -469,41 +463,39 @@ src: url("sabresharkboldital.ttf") format('truetype');
     white-space: nowrap !important;
     padding: 0.25rem 0.5rem !important;
   }
-}
-/* 2) HERO: stack text and image, so no overlap */
-.hero {
-  justify-content: center;
-  display: flex;
-  flex-direction: column; 
-  align-items: center; 
-  text-align: center;
-  padding: 2rem 1rem; /* adjust as desired */
-}
+  /* 2) Ensure container has enough top space 
+        so the hero isn't hidden behind the nav */
+  .container {
+    padding-top: 70px; /* or 80px if nav is taller */
+  }
 
+  /* 3) Hero adjustments: 
+       - reduce text size 
+       - scale lady image so everything fits */
       /* Smaller “Low Voltage Experts” (assuming it's an h3 or similar) */
   .hero-text h1{
     font-size: 1.5rem;
   }
+  
   .hero-text h3 {
     font-size: 0.8rem; /* reduce for mobile */
   }
-  /* Smaller “INNOVATIVE MEP & TECHNOLOGY SOLUTIONS” (hero-subline) */
+    
+      /* Smaller “INNOVATIVE MEP & TECHNOLOGY SOLUTIONS” (hero-subline) */
   .hero-subline {
         font-size: 0.7rem;   /* reduce for mobile */
   }
+  /* Remove or override any absolute positioning on the lady image */
+  .hero-girl {
+    position: static;     /* no absolute positioning */
+    transform: none;      /* remove translate if you had it */
+    width: 60vw;          /* scale image for mobile */
+    max-width: 500px;
+    height: auto;
+    margin: 1rem auto 0;  /* center it and add top margin */
+    display: block;
 
-/* 4) LADY IMAGE: place it below text, no absolute positioning */
-.hero-girl {
-  position: static;     /* remove absolute if used on desktop */
-  transform: none;      /* remove any translateY or similar */
-  width: 60vw;          /* scale up or down as desired */
-  max-width: 900px; 
-  top: 65%;    /* ensure it doesn't get too big */
-  height: 500px;
-  margin: 0 auto;       /* center horizontally */
-  display: block;
-  justify-content: center;
-}
+  }
 
   /* 4) If you have a "Why Choose Us" or other sections,
         reduce font sizes / spacing as well */
