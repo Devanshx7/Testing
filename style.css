@@ -50,7 +50,7 @@ src: url("sabresharkboldital.ttf") format('truetype');
   position: relative;
   width: 100%;
   min-height: 1000px;
-  padding-top: 80px;
+  padding-top: 80px ;
   padding-bottom: 0;
   background-color: #DA3A2C; 
 
@@ -496,8 +496,8 @@ src: url("sabresharkboldital.ttf") format('truetype');
   /* 2) Ensure container has enough top space 
         so the hero isn't hidden behind the nav */
   .container {
-    padding-top: 70px;
-    min-height: auto;/* or 80px if nav is taller */
+    min-height: auto;
+    padding-top: 70px; /* or 80px if nav is taller */
   }
 
   /* 3) Hero adjustments: 
