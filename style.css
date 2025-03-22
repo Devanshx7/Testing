@@ -478,15 +478,6 @@ src: url("sabresharkboldital.ttf") format('truetype');
   margin: 0.3rem 0;
 }
 
-/* --- MEDIA QUERY: Mobile view adjustments --- */
-@media (max-width: 768px) {
-  .nav-links {
-    display: none; /* hide desktop nav */
-  }
-  .hamburger {
-    display: flex; /* show hamburger icon */
-  }
-}
 @media (max-width: 768px) {
   /* 1) NAVBAR: Keep it on one line, smaller text, nicely spaced */
   .top-nav {
