@@ -25,7 +25,7 @@ src: url("sabresharkboldital.ttf") format('truetype');
   width: 100%;
   background: #fff;  /* White nav background */
   color: #000;       /* default text color black */
-  padding: 1rem;
+  padding: 1rem 0;
   display: flex;
   justify-content: right;
   align-items: right; /* logo left, links right */
