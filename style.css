@@ -564,20 +564,17 @@ src: url("sabresharkboldital.ttf") format('truetype');
   padding: 2rem 1rem; /* adjust as desired */
 }
 
-/* 3) HERO TEXT: center and give bottom margin */
-.hero-text {
-  max-width: 600px;
-  margin-bottom: 0 auto; 
-}
-.hero-title{
-  font-size: 2.2rem;
-}
-.hero-text h3{
-  font-size: 1.2rem;
-}
-.hero-subline{
-  font-size: 1rem;
-}
+      /* Smaller “Low Voltage Experts” (assuming it's an h3 or similar) */
+  .hero-text h1{
+    font-size: 1.5rem;
+  }
+  .hero-text h3 {
+    font-size: 0.8rem; /* reduce for mobile */
+  }
+  /* Smaller “INNOVATIVE MEP & TECHNOLOGY SOLUTIONS” (hero-subline) */
+  .hero-subline {
+        font-size: 0.7rem;   /* reduce for mobile */
+  }
 
 /* 4) LADY IMAGE: place it below text, no absolute positioning */
 .hero-girl {
